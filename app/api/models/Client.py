@@ -27,13 +27,13 @@ class Contact(Base):
     __tablename__ = "contacts"
     id = Column(Integer, primary_key=True)
     name = Column(String(50), nullable=False, unique=True)
-    email = name = Column(String(50), nullable=False)
+    email = Column(String(50), nullable=False)
 
     @validates('email')
     def validate_email(self, key, email):
     # make sure email address contains @ character
-    assert '@' in email
-    return email
+        assert '@' in email
+        return email
 
 
     
